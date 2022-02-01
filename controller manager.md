@@ -1,0 +1,18 @@
+# controller manager #k8stodo
+- it is a daemon that manages the control loop
+- it acts as controller of controllers
+- it watches the api server for the state of the cluster and make changes if the current state doesnt match desired state
+- different controllers include
+      - [[node controller]]
+      - [[replication controller]]
+      - [[replicaset]]
+      - endpoint controller
+      - [[namespace controller]]
+      - job controller
+      - deployment controller
+      - service accounts controller
+      - pv binder controller
+      - pv protection controller
+      - [[replicaset]]
+      - statefulset
+- if the cluster is set up using kudeadm kube controller manager is deployed as a pod in the master node

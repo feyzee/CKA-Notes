@@ -1,0 +1,11 @@
+# cloud controller manager
+- it is responsible for interacting with underlying clous provider if there is
+- when a change is applied using `kubectl`
+      - it goes through [[kube api server]]
+      - then to [[etcd]] for storing configuration
+      - next it passes to cloudd controller manager to make changes to underlying cloud provider
+      - based on the cloud provider it interacts through the cloud provider's api's
+- it is used for controlling underlying
+      - instances
+      - load balancers
+      - storage providers

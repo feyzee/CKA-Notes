@@ -1,0 +1,19 @@
+# static pods
+- all the pod definitions are stored in a directory(could be any directory) eg- `/etc/kubernetes/manifests`
+   - [[kubelet]] periodically checks with directory for any changes or additions
+   - path of the directory is set in [[kubelet]] agent systemd service file as a parameter either as a config file or the path directly
+      - `--config=/etc/kubernetes/kubeconfig.yaml`
+         - `staticPodPath: /etc/kubernetes/manifests`
+      - `--pod-manifest-path=/etc/kubernetes/manifests`
+- only pods can be created this way. [[replicaset]], [[services]] or [[deployment]] are not supported
+   - this is because [[kubelet]] works at pod level and can only understand [[pods]]
+- to check the container status we'll have to utilize container engine's cli tool
+   - eg- `docker ps -a`
+- http apis can be used to schedule pods
+- [[kube api server]] only have read only access to the pods in the pod
+   - [[kubelet]] automatically tries to create a mirror Pod on the [[kube api server]] for each static Pod.
+   - this means that the Pods running on a node are visible on the API server, but cannot be controlled from there.
+   - the Pod names will be suffixed with the node hostname with a leading hyphen.
+- [[kubeadm]] uses static pods to set up a cluster
+- unlike [[daemonset]] static pods are controlled by kubelet not [[kube api server]]
+   - both are ignored by [[scheduler]]

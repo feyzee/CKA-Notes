@@ -27,6 +27,7 @@
 ## sidecar containers
 ## volumes
 ## helper containers
+## [[pod networking]]
 
 # commands
 

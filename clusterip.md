@@ -1,5 +1,5 @@
 # clusterip
-- ip address of a service is known as [[clusterip]] 
+- ip address of a [[service]] limited to a cluster is known as [[clusterip]] 
 - each group of pods will a single service interface for communicating effectively to access them
 
 # definition
